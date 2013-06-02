@@ -17,6 +17,12 @@ var jogjanan = new function(){
          
       });
 		
+		var locOptions = {
+						timeout : 10000,
+						enableHighAccuracy : true
+						};
+ 		
+		navigator.geolocation.getCurrentPosition(geoloc.onSuccess, geoloc.onError,locOptions);
 		$("#halamandepan").bind("pageshow", function(){
 			berandaxml.init("http://www.jogjanan.com/service/spotrandom.php");
 			});
@@ -41,12 +47,7 @@ var jogjanan = new function(){
 	}
 	
 	this.onDeviceReady = function (){
-		var locOptions = {
-							timeout : 5000,
-							enableHighAccuracy : true
-						};
- 		
-		navigator.geolocation.getCurrentPosition(geoloc.onSuccess, geoloc.onError,locOptions);
+		
    
 		}
 		
