@@ -68,9 +68,11 @@ var geoloc = new function(){
                             'Longitude: '          + position.coords.longitude             + '<br />' ;
 		}
 		
-	this.onError = function(){
+	this.onError = function(error){
 		alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
-		}
+		var element = document.getElementById('kaki');
+		element.innerHTML = ''+error.message+'';
+				}
 		
 	}
