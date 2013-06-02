@@ -41,8 +41,12 @@ var jogjanan = new function(){
 	}
 	
 	this.onDeviceReady = function (){
+		var locOptions = {
+							timeout : 5000,
+							enableHighAccuracy : true
+						};
  		
-		navigator.geolocation.getCurrentPosition(geoloc.onSuccess, geoloc.onError);
+		navigator.geolocation.getCurrentPosition(geoloc.onSuccess, geoloc.onError,locOptions);
    
 		}
 		
@@ -71,8 +75,8 @@ var geoloc = new function(){
 	this.onError = function(error){
 		alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
-		var element = document.getElementById('kaki');
-		element.innerHTML = ''+error.message+'';
-				}
+                var element = document.getElementById('kaki');
+        element.innerHTML =''+error.message+'';
+		}
 		
 	}
